@@ -16,7 +16,7 @@ notes etc.), and adapted in terms of accessibility.
 ## 🛠 Used tools / programming languages / technologies
 
 - HTML / CSS (SCSS),
-- React (React Redux, React Router, React Icons),
+- React (React Redux, React Router),
 - page is using Local Storage to contain typed data,
 - git / github.
 
