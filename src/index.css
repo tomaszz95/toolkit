@@ -109,3 +109,9 @@ label {
 	--gradient: var(--gradient--light);
 	color-scheme: light;
 }
+
+.active-link {
+	border: 3px solid var(--highlight);
+	color: var(--highlight);
+	background-color: var(--primary);
+}

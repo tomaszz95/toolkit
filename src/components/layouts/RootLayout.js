@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import MainNavigation from './MainNavigation'
+import Navigation from '../navigation/Navigation'
 import Topbar from './Topbar'
 import styles from './RootLayout.module.css'
 
@@ -8,7 +8,7 @@ const RootLayout = () => {
 		<>
 			<header className={styles.header}>
 				<Topbar />
-				<MainNavigation />
+				<Navigation />
 			</header>
 			<main>
 				<Outlet />
