@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import RootLayout from './components/layouts/RootLayout'
+import RootLayout from './components/layout/RootLayout'
 import ErrorPage from './components/pages/ErrorPage'
 import TodoApp from './components/pages/TodoApp'
 import NotesApp from './components/pages/NotesApp'
@@ -42,7 +42,6 @@ const App = () => {
 	return (
 		<>
 			<RouterProvider router={router} />
-			<p>asdsaddsasadsadsad</p>
 		</>
 	)
 }
