@@ -1,24 +1,37 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './Topbar.module.css'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 const Topbar = () => {
-	const [theme, setTheme] = useState('dark')
+	const [theme, setTheme] = useState()
+	const { getValue, addValue } = useLocalStorage()
 
 	const changeTheme = () => {
 		if (theme === 'dark') {
 			setTheme('light')
+			addValue('theme', 'light')
+			document.documentElement.setAttribute('color-scheme', 'light')
 		} else {
 			setTheme('dark')
+			addValue('theme', 'dark')
+			document.documentElement.setAttribute('color-scheme', 'dark')
 		}
 	}
+
+	useEffect(() => {
+		const storageValue = getValue('theme')
+		if (storageValue == null) {
+			setTheme('dark')
+			document.documentElement.setAttribute('color-scheme', 'dark')
+		} else {
+			setTheme(storageValue)
+			document.documentElement.setAttribute('color-scheme', storageValue)
+		}
+	}, [getValue])
 
 	const sliderClass = theme === 'dark' ? styles.slider : `${styles.slider} ${styles.active}`
 
 	const logoColor = theme === 'dark' ? 'white' : 'black'
-
-	useEffect(() => {
-		document.documentElement.setAttribute('color-scheme', theme)
-	}, [theme])
 
 	return (
 		<div className={styles.container}>
