@@ -1,0 +1,17 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1em 2em;
+	width: 100%;
+	max-width: 1200px;
+	list-style: none;
+}
+
+.error {
+	margin-top: 2em;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: var(--alert);
+}

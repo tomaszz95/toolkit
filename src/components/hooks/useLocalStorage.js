@@ -10,15 +10,15 @@ function useLocalStorage() {
 		window.localStorage.setItem(key, JSON.stringify(newValue))
 	}, [])
 
-	const removeValue = key => {
+	const removeValue = useCallback(key => {
 		localStorage.removeItem(key)
-	}
+	}, [])
 
-	const editValue = (key, newValue) => {
+	const editValue = useCallback((key, newValue) => {
 		const currentValue = localStorage.getItem(key)
 		const updatedValue = [...currentValue, newValue]
 		localStorage.setItem(key, JSON.stringify(updatedValue))
-	}
+	}, [])
 
 	return { getValue, addValue, removeValue, editValue }
 }

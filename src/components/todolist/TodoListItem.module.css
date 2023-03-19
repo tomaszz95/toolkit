@@ -1,0 +1,65 @@
+.task {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 1em 0;
+	padding: 1em 2em;
+	width: 100%;
+	border-radius: 10px;
+	background-color: var(--element);
+}
+
+.title {
+	font-size: 1.5em;
+	color: var(--text);
+	font-weight: bold;
+}
+
+.tools {
+	min-width: 130px;
+}
+
+.check,
+.delete,
+.edit {
+	padding: 0.5em;
+	border: none;
+	background-color: transparent;
+	transition: background-color 0.3s;
+	border-radius: 35%;
+	cursor: pointer;
+	font-size: 1.6em;
+}
+
+.check i,
+.delete i {
+	pointer-events: none;
+}
+
+.check:hover,
+.delete:hover,
+.edit:hover {
+	background-color: var(--primary);
+}
+
+.check {
+	color: var(--check);
+	margin-right: 0.4em;
+}
+
+.delete {
+	color: var(--alert);
+	margin-left: 0.4em;
+}
+
+.edit {
+	color: var(--edit);
+	font-weight: 600;
+	letter-spacing: 1px;
+}
+
+.checked {
+	font-style: italic;
+	text-decoration: line-through;
+	font-weight: lighter;
+}

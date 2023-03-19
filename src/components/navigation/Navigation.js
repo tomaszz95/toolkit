@@ -1,4 +1,3 @@
-// import styles from './MainNavigation.module.css'
 import NavigationItemList from './NavigationItemList'
 import styles from './Navigation.module.css'
 
