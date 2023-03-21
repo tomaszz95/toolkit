@@ -15,3 +15,9 @@
 	font-weight: bold;
 	color: var(--alert);
 }
+
+@media (min-width: 992px) {
+	.error {
+		font-size: 1.6em;
+	}
+}

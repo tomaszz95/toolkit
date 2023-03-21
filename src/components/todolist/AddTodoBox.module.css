@@ -17,10 +17,10 @@
 }
 
 .error {
-	font-size: 1.4em;
+	font-size: 1.4rem;
 	font-weight: bold;
 	color: var(--alert);
-	margin-bottom: 1.2em;
+	margin-bottom: 1em;
 }
 
 .box {
@@ -34,13 +34,16 @@
 .input {
 	width: 100%;
 	border-radius: 5px;
-	padding: 1em 2em;
+	padding: 0.5em 1em;
 	margin-bottom: 2em;
-	border: 2px solid var(--text);
+	border: 2px solid var(--greylish);
+	background-color: var(--text);
+	color: var(--primary);
+	font-size: 1.4rem;
 }
 
 .input::placeholder {
-	font-size: 1.2em;
+	font-size: 1.1em;
 	font-style: italic;
 }
 
@@ -51,7 +54,7 @@
 	border: 3px solid var(--highlight);
 	color: var(--text);
 	font-weight: bold;
-	font-size: 1.6em;
+	font-size: 1.6rem;
 	letter-spacing: 1px;
 	border-radius: 20px;
 	cursor: pointer;
@@ -60,4 +63,21 @@
 
 .button:hover {
 	background-color: var(--primary);
+}
+
+@media (min-width: 992px) {
+	.label {
+		font-size: 2.2rem;
+	}
+	.error {
+		font-size: 1.5rem;
+	}
+	.input {
+		font-size: 1.5rem;
+		padding: 0.6em 1.2em;
+	}
+	.button {
+		padding: 0.7em 1.4em;
+		font-size: 1.7rem;
+	}
 }

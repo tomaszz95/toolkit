@@ -15,6 +15,12 @@
 	font-weight: bold;
 }
 
+.title.checkTask {
+	font-style: italic;
+	text-decoration: line-through;
+	font-weight: lighter;
+}
+
 .tools {
 	min-width: 130px;
 }
@@ -58,8 +64,16 @@
 	letter-spacing: 1px;
 }
 
-.checked {
-	font-style: italic;
-	text-decoration: line-through;
-	font-weight: lighter;
+@media (min-width: 992px) {
+	.title {
+		font-size: 1.7rem;
+	}
+
+	.check {
+		margin-right: 0.5em;
+	}
+
+	.delete {
+		margin-left: 0.5em;
+	}
 }

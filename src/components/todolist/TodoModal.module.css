@@ -1,0 +1,123 @@
+.container,
+.shadow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	transform: translateX(-100%);
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container.active {
+	animation: 1s modalActive forwards;
+}
+
+.shadow {
+	background-color: var(--primary);
+	opacity: 0.9;
+	z-index: 5;
+}
+
+.container.active > .shadow {
+	animation: 1.2s shadowActive forwards;
+}
+
+.box {
+	width: 80%;
+	max-width: 800px;
+	padding: 5em 3em;
+	display: flex;
+	flex-direction: column;
+	z-index: 10;
+	color: var(--text);
+	background-color: var(--primary);
+	border: 2px solid var(--highlight);
+	border-radius: 10px;
+	text-align: center;
+}
+
+.label {
+	font-size: 2.5em;
+	margin-bottom: 1em;
+	text-align: center;
+	font-weight: bold;
+}
+
+.error {
+	font-size: 1.4em;
+	font-weight: bold;
+	color: var(--alert);
+	margin-bottom: 1em;
+}
+
+.input {
+	width: 100%;
+	border-radius: 5px;
+	padding: 0.5em 1em;
+	margin-bottom: 2em;
+	border: 2px solid var(--greylish);
+	background-color: var(--text);
+	color: var(--primary);
+	font-size: 1.4em;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 1em;
+}
+
+.edit,
+.cancel {
+	width: 45%;
+	padding: 0.8em 0.4em;
+	background-color: transparent;
+	border: 3px solid var(--highlight);
+	color: var(--text);
+	font-weight: bold;
+	font-size: 1.6em;
+	letter-spacing: 1px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.edit:hover,
+.cancel:hover {
+	background-color: var(--element);
+}
+
+@keyframes modalActive {
+	from {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes shadowActive {
+	0% {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+	50% {
+		opacity: 0;
+		transform: translateX(0);
+	}
+
+	100% {
+		opacity: 0.9;
+		transform: translateX(0);
+	}
+}
