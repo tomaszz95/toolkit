@@ -64,6 +64,12 @@
 	letter-spacing: 1px;
 }
 
+.edit.checkTask {
+	color: var(--greylish);
+	text-decoration: line-through;
+	font-weight: lighter;
+}
+
 @media (min-width: 992px) {
 	.title {
 		font-size: 1.7rem;

@@ -17,6 +17,20 @@ const todoSlice = createSlice({
 				}
 			})
 		},
+		deleteTask(state, action) {
+			const updatedTasks = state.filter(item => item.id !== action.payload)
+			return updatedTasks
+		},
+		editTask(state, action) {
+			console.log(action.payload);
+			return state.map(todo => {
+				if (todo.id === action.payload.id) {
+					return { ...action.payload }
+				} else {
+					return todo
+				}
+			})
+		},
 	},
 })
 

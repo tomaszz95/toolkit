@@ -11,7 +11,7 @@ const AddTodoBox = () => {
 	const addTaskHandler = e => {
 		e.preventDefault()
 
-		if (inputRef.current.value === '') {
+		if (inputRef.current.value.trim() === '') {
 			setError(true)
 		} else {
 			dispatch(todoActions.addTask(inputRef.current.value))
