@@ -22,7 +22,7 @@ const todoSlice = createSlice({
 			return updatedTasks
 		},
 		editTask(state, action) {
-			console.log(action.payload);
+		
 			return state.map(todo => {
 				if (todo.id === action.payload.id) {
 					return { ...action.payload }

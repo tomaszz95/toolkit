@@ -13,18 +13,10 @@
 	align-items: center;
 }
 
-.container.active {
-	animation: 1s modalActive forwards;
-}
-
 .shadow {
 	background-color: var(--primary);
 	opacity: 0.8;
 	z-index: 5;
-}
-
-.container.active > .shadow {
-	animation: 1.2s shadowActive forwards;
 }
 
 .box {
@@ -61,8 +53,8 @@
 	padding: 0.5em 1em;
 	margin-bottom: 2em;
 	border: 2px solid var(--greylish);
-	background-color: var(--text);
-	color: var(--primary);
+	background-color: #fff;
+	color: #000;
 	font-size: 1.4em;
 }
 
@@ -71,6 +63,11 @@
 	justify-content: space-between;
 	width: 100%;
 	margin-top: 1em;
+}
+
+.buttons.errorInput > .edit {
+	color: var(--greylish);
+	border: 3px solid var(--greylish);
 }
 
 .edit,
@@ -91,31 +88,4 @@
 .edit:hover,
 .cancel:hover {
 	background-color: var(--element);
-}
-
-@keyframes modalActive {
-	from {
-		opacity: 0;
-		transform: translateX(-100%);
-	}
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
-@keyframes shadowActive {
-	0% {
-		opacity: 0;
-		transform: translateX(-100%);
-	}
-	50% {
-		opacity: 0;
-		transform: translateX(0);
-	}
-
-	100% {
-		opacity: 0.9;
-		transform: translateX(0);
-	}
 }

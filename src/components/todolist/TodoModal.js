@@ -20,23 +20,20 @@ const TodoModal = ({ taskId, onCloseModal }) => {
 	const listenToInput = () => {
 		setTaskName(inputRef.current.value)
 
-		if (inputRef.current.value.trim() === '') {
+		if (inputRef.current.value.trim().length === 0) {
 			setError(true)
-			console.log(error)
 		} else {
 			setError(false)
 		}
 	}
 
 	const editTodoFunction = () => {
-		const task = { ...editedTask, name: inputRef.current.value }
-		console.log(task)
+		const task = { ...editedTask, name: taskName }
 		dispatch(todoActions.editTask(task))
 		onCloseModal()
 	}
 
 	const cancelTodoFunction = () => {
-		console.log(editedTask)
 		dispatch(todoActions.editTask(editedTask))
 		onCloseModal()
 	}
@@ -48,17 +45,17 @@ const TodoModal = ({ taskId, onCloseModal }) => {
 				<label htmlFor='editTask' className={styles.label}>
 					Edit your task
 				</label>
-				{editedTask.name === '' ? <p className={styles.error}>This field cannot be empty!</p> : null}
+				{error && <p className={styles.error}>This field cannot be empty!</p>}
 				<input
 					type='text'
 					id='editTask'
 					className={styles.input}
 					ref={inputRef}
-					value={editedTask.name}
+					value={taskName}
 					onChange={listenToInput}
 				/>
-				<div className={styles.buttons}>
-					<button className={styles.edit} aria-label='Edit task' onClick={editTodoFunction}>
+				<div className={`${styles.buttons} ${error ? styles.errorInput : ''}`}>
+					<button className={styles.edit} aria-label='Edit task' onClick={editTodoFunction} disabled={error}>
 						Edit
 					</button>
 					<button className={styles.cancel} aria-label='Cancel changes' onClick={cancelTodoFunction}>
