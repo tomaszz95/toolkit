@@ -1,0 +1,94 @@
+.note {
+	width: 90%;
+	max-width: 400px;
+	margin: 1.5em 1em;
+	padding: 1em 2em;
+	border-radius: 10px;
+	background-color: var(--element);
+	border: 1px solid var(--highlight);
+	text-decoration: none;
+}
+
+.title {
+	width: 100%;
+	margin-top: 1em;
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-align: center;
+	color: var(--highlight);
+	letter-spacing: 1px;
+}
+
+.description {
+	margin: 1.5em 0;
+	padding: 0 1em;
+	font-size: 1.4rem;
+	text-align: left;
+	color: var(--text);
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin: 1.5em 0;
+}
+
+.edit,
+.delete {
+	width: 45%;
+	padding: 0.6em 1.2em;
+	background-color: transparent;
+	border: 1px solid var(--highlight);
+	color: var(--text);
+	font-weight: bold;
+	font-size: 1.5rem;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.edit:hover,
+.delete:hover {
+	background-color: var(--primary);
+}
+
+@media (min-width: 768px) {
+	.title {
+		font-size: 1.8rem;
+	}
+
+	.description {
+		font-size: 1.5em;
+	}
+}
+
+@media (min-width: 992px) {
+	.note {
+		display: flex;
+		flex-direction: column;
+		max-width: 500px;
+		max-height: 500px;
+		height: 100%;
+	}
+
+	.title {
+		font-size: 2rem;
+	}
+
+	.description {
+		height: 75%;
+		font-size: 1.6em;
+		overflow: auto;
+	}
+
+	.buttons {
+		margin-bottom: 2em;
+	}
+	
+	.edit,
+	.delete {
+		padding: 0.8em 1.6em;
+		font-size: 1.7em;
+	}
+}
