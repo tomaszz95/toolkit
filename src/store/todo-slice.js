@@ -4,6 +4,9 @@ const todoSlice = createSlice({
 	name: 'todo',
 	initialState: [],
 	reducers: {
+		updateFromStorage(_, action) {
+			return action.payload
+		},
 		addTask(state, action) {
 			const id = Math.floor(Math.random() * Date.now()).toString()
 			return [...state, { name: action.payload, id: id, isChecked: false }]
@@ -22,7 +25,6 @@ const todoSlice = createSlice({
 			return updatedTasks
 		},
 		editTask(state, action) {
-		
 			return state.map(todo => {
 				if (todo.id === action.payload.id) {
 					return { ...action.payload }

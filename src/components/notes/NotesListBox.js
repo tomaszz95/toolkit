@@ -1,14 +1,16 @@
-import styles from './NotesListBox.module.css'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import NotesItem from './NotesItem'
-
-const notes = [
-	{ title: 'some note', description: 'lorem asdsad sasad sdsadd asdasd asdsad asdasd sddssd dssdsd sddssdsd sdsdsd', id: 1 },
-	{ title: 'some note', description: 'lorem asdsad sasad sdsadd asdasd asdsad asdasd sddssd dssdsd sddssdsd sdsdsd', id: 2 },
-	{ title: 'some note', description: 'lorem asdsad sasad sdsadd asdasd asdsad asdasd sddssd dssdsd sddssdsd sdsdsd', id: 3 },
-	{ title: 'some note', description: 'lorem asdsad sasad sdsadd asdasd asdsad asdasd sddssd dssdsd sddssdsd sdsdsd', id: 4 },
-]
+import styles from './NotesListBox.module.css'
 
 const NotesListBox = () => {
+	const [notes, setNotes] = useState([])
+	const notesList = useSelector(state => state.note)
+
+	useEffect(() => {
+		setNotes(notesList)
+	}, [notesList])
+
 	return notes.length === 0 ? (
 		<p className={styles.error}>No notes on the list...</p>
 	) : (
