@@ -1,0 +1,18 @@
+.card {
+	max-width: 500px;
+	display: block;
+	margin: 5em auto;
+	padding: 1.5em;
+	border: 2px solid var(--text);
+	background-color: var(--element);
+	border-radius: 20px;
+}
+
+@media (min-width: 1100px) {
+	.card {
+		display: flex;
+		flex-direction: row;
+		max-width: 1100px;
+		padding: 2em;
+	}
+}

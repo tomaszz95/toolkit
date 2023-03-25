@@ -1,0 +1,7 @@
+.weather {
+	padding: 2em;
+	width: 100%;
+	height: calc(100vh - 230px);
+	position: relative;
+	color: var(--text);
+}
