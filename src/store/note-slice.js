@@ -21,6 +21,9 @@ const noteSlice = createSlice({
 				}
 			})
 		},
+		updateFromStorage(_, action) {
+			return action.payload
+		},
 	},
 })
 

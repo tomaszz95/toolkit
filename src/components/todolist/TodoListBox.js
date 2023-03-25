@@ -8,7 +8,7 @@ import { todoActions } from '../../store/todo-slice'
 const TodoListBox = ({ onOpenModal }) => {
 	const [tasks, setTasks] = useState([])
 	const taskList = useSelector(state => state.todo)
-	const { getValue, addValue, removeValue } = useLocalStorage()
+	const { getValue, addValue } = useLocalStorage()
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -18,11 +18,10 @@ const TodoListBox = ({ onOpenModal }) => {
 		} else {
 			setTasks([])
 		}
-	}, [taskList, addValue, removeValue])
+	}, [taskList, addValue])
 
 	useEffect(() => {
 		const storageValue = getValue('todo')
-		console.log('update')
 		if (storageValue !== null) {
 			setTasks(storageValue)
 			dispatch(todoActions.updateFromStorage(storageValue))

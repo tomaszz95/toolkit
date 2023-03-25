@@ -24,8 +24,8 @@
 }
 
 .error {
-	margin-top: 0.6em;
-	font-size: 1.4rem;
+	margin-top: 1em;
+	font-size: 1.6rem;
 	font-weight: bold;
 	color: var(--alert);
 }
