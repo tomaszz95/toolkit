@@ -30,7 +30,6 @@ const WeatherData = ({
 			{ name: 'Wind', value: [`${cityWindSpeed} m/s`, cityWindDeg] },
 		])
 	}, [cityWeather, cityTemp, cityPress, cityHum, sunriseH, sunsetH, cityWindSpeed, cityWindDeg])
-
 	return (
 		<div className={styles.data}>
 			{weatherArr.map(item => (

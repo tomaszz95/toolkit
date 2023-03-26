@@ -2,23 +2,24 @@ import WeatherForm from './WeatherForm'
 import WeatherData from './WeatherData'
 import useApi from '../hooks/useApi'
 import styles from './WeatherContainer.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 const WeatherContainer = () => {
-	const [inputError, setInputError] = useState('')
 	const { data, error, getApiData } = useApi()
-
+	const { getValue } = useLocalStorage()
 	const inputHandler = city => {
 		getApiData(city)
 	}
 
 	useEffect(() => {
-		getApiData('London')
-
-		if (error !== '') {
-			setInputError(error)
+		const storageCity = getValue('weather')
+		if (storageCity === null) {
+			getApiData('London')
+		} else {
+			getApiData(storageCity)
 		}
-	}, [getApiData, error])
+	}, [getApiData, getValue])
 
 	return (
 		<div className={styles.card}>
@@ -27,7 +28,7 @@ const WeatherContainer = () => {
 				cityName={data.cityName}
 				weatherId={data.cityWeatherID}
 				timezoneSec={data.cityTimezoneSeconds}
-				error={inputError}
+				error={error}
 			/>
 			<WeatherData
 				cityWeather={data.cityWeatherDesc}
