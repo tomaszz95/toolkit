@@ -1,0 +1,10 @@
+.box {
+	display: block;
+	margin: 5em auto;
+	width: 100%;
+	max-width: 400px;
+	height: 100%;
+	max-height: 550px;
+	border: 3px solid var(--greylish);
+	border-radius: 20px;
+}
