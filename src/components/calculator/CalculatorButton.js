@@ -1,14 +1,11 @@
 import styles from './CalculatorButton.module.css'
 
-const CalculatorButton = ({ value, children, handleClick, isNum }) => {
-	const clickHandle = () => {
-		if (handleClick) {
-			handleClick(value)
-		}
-	}
-
+const CalculatorButton = ({ value, children, handleBtnValue, isNum }) => {
 	return (
-		<button className={`${styles.btn} ${isNum ? styles.darker : ''}`} onClick={clickHandle}>
+		<button
+			value={value}
+			className={`${styles.btn} ${isNum ? styles.darker : ''}`}
+			onClick={e => handleBtnValue(e.target.value)}>
 			{children}
 		</button>
 	)

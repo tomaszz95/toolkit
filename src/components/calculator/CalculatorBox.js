@@ -3,10 +3,15 @@ import CalculatorBody from './CalculatorBody'
 import styles from './CalculatorBox.module.css'
 
 const CalculatorBox = () => {
+
+	const getValuesHandler = ({ firstValue, secondValue, operator, endValue }) => {
+		console.log(firstValue, secondValue, operator, endValue)
+	}
+	
 	return (
 		<div className={styles.box}>
 			<CalculatorWindow />
-			<CalculatorBody />
+			<CalculatorBody onValues={getValuesHandler} />
 		</div>
 	)
 }
