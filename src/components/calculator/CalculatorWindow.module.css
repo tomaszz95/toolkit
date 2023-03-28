@@ -4,6 +4,7 @@
 	align-items: flex-end;
 	justify-content: space-around;
 	padding: 4em 3em;
+	min-height: 140px;
 	text-align: right;
 	border-bottom: 2px solid var(--greylish);
 }

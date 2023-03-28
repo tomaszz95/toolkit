@@ -1,10 +1,11 @@
 import styles from './CalculatorWindow.module.css'
 
-const CalculatorWindow = () => {
+const CalculatorWindow = ({ setVal }) => {
+	console.log(setVal)
 	return (
 		<div className={styles.display}>
-			<span className={styles.prev}>13123</span>
-			<span className={styles.act}>1231323</span>
+			<span className={styles.prev}>{setVal.upperValue}</span>
+			<span className={styles.act}>{setVal.lowerValue}</span>
 		</div>
 	)
 }
