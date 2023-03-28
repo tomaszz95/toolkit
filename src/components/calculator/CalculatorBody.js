@@ -57,12 +57,26 @@ const CalculatorBody = ({ onValues }) => {
 		if (firstValue !== '' && secondValue === '') {
 			setOperator(value)
 		}
+		if (finalValue === "Can't divide by 0!" || finalValue === 'undefined') {
+			setFinalValue('')
+		}
 		if (firstValue !== '' && secondValue !== '' && operator !== '') {
 			onEqualHandler()
-
 			setFirstValue(endValue.toString())
 			setFinalValue('')
 			setOperator(value)
+		}
+		if (
+			firstValue === '' &&
+			secondValue === '' &&
+			operator === '' &&
+			finalValue !== '' &&
+			finalValue !== "Can't divide by 0!" &&
+			finalValue !== 'undefined'
+		) {
+			setFirstValue(finalValue)
+			setOperator(value)
+			setFinalValue('')
 		}
 	}
 
@@ -100,11 +114,23 @@ const CalculatorBody = ({ onValues }) => {
 			endValue = multipNumbers(firstValue, secondValue)
 		}
 		if (operator === '/') {
-			endValue = divideNumbers(firstValue, secondValue)
+			if (firstValue === '0' && secondValue === '0') {
+				endValue = 'undefined'
+			} else if (firstValue === '0' && secondValue !== '') {
+				endValue = 0
+			} else if (firstValue !== '' && secondValue === '0') {
+				endValue = "Can't divide by 0!"
+			} else {
+				endValue = divideNumbers(firstValue, secondValue)
+			}
 		}
 		const decinalPlaces = Math.max(firstValue.split('.')[1]?.length ?? 0, secondValue.split('.')[1]?.length ?? 0)
 
-		setFinalValue(endValue.toFixed(decinalPlaces).toString())
+		if (endValue === "Can't divide by 0!" || endValue === 'undefined') {
+			setFinalValue(endValue)
+		} else {
+			setFinalValue(endValue.toFixed(decinalPlaces).toString())
+		}
 		setFirstValue('')
 		setSecondValue('')
 		setOperator('')
