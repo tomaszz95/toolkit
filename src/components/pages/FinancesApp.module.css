@@ -1,0 +1,10 @@
+.money {
+	width: 100vw;
+	padding: 2em 0;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}

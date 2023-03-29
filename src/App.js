@@ -3,7 +3,7 @@ import RootLayout from './components/layouts/RootLayout'
 import ErrorPage from './components/pages/ErrorPage'
 import TodoApp from './components/pages/TodoApp'
 import NotesApp from './components/pages/NotesApp'
-import MoneyApp from './components/pages/MoneyApp'
+import FinancesApp from './components/pages/FinancesApp'
 import CalculatorApp from './components/pages/CalculatorApp'
 import WeatherApp from './components/pages/WeatherApp'
 
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: 'finance',
-				element: <MoneyApp />,
+				element: <FinancesApp />,
 			},
 			{
 				path: 'calculator',

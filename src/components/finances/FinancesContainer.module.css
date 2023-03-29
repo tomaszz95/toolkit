@@ -1,0 +1,17 @@
+.container {
+	width: 100%;
+	max-width: 1200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: var(--texr);
+	padding: 2em 3em;
+}
+
+@media (min-width: 1100px) {
+	.container {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
