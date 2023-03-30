@@ -1,0 +1,15 @@
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1em;
+	font-size: 2.5em;
+	text-align: center;
+	background: radial-gradient(circle at 30% 15%, var(--primary), var(--darker));
+	color: var(--text);
+}
