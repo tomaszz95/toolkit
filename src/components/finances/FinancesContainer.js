@@ -1,27 +1,41 @@
 import styles from './FinancesContainer.module.css'
 import FinancesListBox from './FinancesListBox'
 import FinancesTotalBox from './FinancesTotalBox'
-
-const arrIncome = [
-	{ name: 'asdsssds', value: 3112, id: '1' },
-	{ name: 'assssddsads', value: 1213, id: '2' },
-	{ name: 'assssddsads asdsadsda', value: 123112, id: '3' },
-	{ name: 'asddsasssssds', value: 12, id: '4' },
-]
-
-const arrExpenses = [
-	{ name: 'asdds', value: 312, id: '5' },
-	{ name: 'asddsads', value: 123, id: '6' },
-	{ name: 'asddsads asdsadsda', value: 12312, id: '7' },
-	{ name: 'asddsasssssds dssdsd sddsd', value: 2, id: '8' },
-]
+import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 
 const FinancesContainer = () => {
+	const [incomeArr, setIncomeArr] = useState([])
+	const [expensesArr, setExpensesArr] = useState([])
+	const [totalValues, setTotalValues] = useState({ totalIncome: 0, totalExpenses: 0, balance: 0 })
+	const financesList = useSelector(state => state.finances)
+
+	useEffect(() => {
+		setIncomeArr(financesList.income)
+		setExpensesArr(financesList.expenses)
+		let incomeValue = 0
+		let expensesValue = 0
+		let sumValue = 0
+
+		if (financesList.income.length > 0 && incomeArr.length > 0) {
+			const incomeValuesArr = financesList.income.map(item => item.value)
+			incomeValue = incomeValuesArr.reduce((accVal, currVal) => accVal + currVal, 0)
+		}
+		
+		if (financesList.expenses.length > 0 && expensesArr.length > 0) {
+			const expensesValuesArr = financesList.expenses.map(item => item.value)
+			expensesValue = expensesValuesArr.reduce((accVal, currVal) => accVal + currVal, 0)
+		}
+
+		sumValue = incomeValue + expensesValue
+		setTotalValues({ totalIncome: incomeValue, totalExpenses: expensesValue, balance: sumValue })
+	}, [financesList, incomeArr, expensesArr])
+
 	return (
 		<div className={styles.container}>
-			<FinancesListBox listType='Income' moneyArray={arrIncome} />
-			<FinancesListBox listType='Expenses' moneyArray={arrExpenses} />
-			<FinancesTotalBox />
+			<FinancesListBox listType='Income' moneyArray={incomeArr} />
+			<FinancesListBox listType='Expenses' moneyArray={expensesArr} />
+			<FinancesTotalBox totalValues={totalValues} />
 		</div>
 	)
 }

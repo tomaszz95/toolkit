@@ -1,10 +1,10 @@
 import styles from './FinancesModal.module.css'
 import FinancesModalForm from './FinancesModalForm'
 
-const FinancesModal = () => {
+const FinancesModal = ({ onHideModal }) => {
 	return (
 		<div className={styles.modal}>
-			<FinancesModalForm />
+			<FinancesModalForm onHideModal={onHideModal} />
 		</div>
 	)
 }
