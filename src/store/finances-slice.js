@@ -5,8 +5,20 @@ const financesSlice = createSlice({
 	initialState: { income: [], expenses: [] },
 	reducers: {
 		addFinance(state, action) {
-			let arr
-			const id = Math.floor(Math.random() * Date.now()).toString()
+			let arr, id
+			const incomeArr = JSON.parse(JSON.stringify(state.income))
+			const expensesArr = JSON.parse(JSON.stringify(state.expenses))
+			const incomeId = incomeArr.map(item => item.id)
+			const expensesId = expensesArr.map(item => item.id)
+
+			if (action.payload.id === undefined) {
+				id = Math.floor(Math.random() * Date.now()).toString()
+			} else {
+				id = action.payload.id
+			}
+
+			if (incomeId.indexOf(id) !== -1 || expensesId.indexOf(id) !== -1) return
+
 			if (action.payload.value > 0) {
 				arr = {
 					income: [
