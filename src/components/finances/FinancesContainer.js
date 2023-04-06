@@ -6,20 +6,21 @@ import { useEffect, useState } from 'react'
 import useLocalStorage from '../hooks/useLocalStorage'
 
 const FinancesContainer = () => {
-	const [incomeArr, setIncomeArr] = useState([])
-	const [expensesArr, setExpensesArr] = useState([])
+	const [incomeArr, setIncomeArr] = useState('')
+	const [expensesArr, setExpensesArr] = useState('')
 	const [totalValues, setTotalValues] = useState({ totalIncome: 0, totalExpenses: 0, balance: 0 })
 	const financesList = useSelector(state => state.finances)
 	const { addValue } = useLocalStorage()
 
 	useEffect(() => {
-		if (financesList.income.length === 0 && financesList.expenses.length === 0) {
-			return
+		if (incomeArr === '' && expensesArr === '') {
+			setIncomeArr([])
+			setExpensesArr([])
+		} else {
+			setIncomeArr(financesList.income)
+			setExpensesArr(financesList.expenses)
+			addValue('finances', financesList)
 		}
-		
-		setIncomeArr(financesList.income)
-		setExpensesArr(financesList.expenses)
-		addValue('finances', financesList)
 
 		let incomeValue = 0
 		let expensesValue = 0
