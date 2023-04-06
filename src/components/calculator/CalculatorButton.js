@@ -5,7 +5,8 @@ const CalculatorButton = ({ value, children, handleBtnValue, isNum }) => {
 		<button
 			value={value}
 			className={`${styles.btn} ${isNum ? styles.darker : ''}`}
-			onClick={e => handleBtnValue(e.target.value)}>
+			onClick={e => handleBtnValue(e.target.value)}
+			aria-label={`Button ${value}`}>
 			{children}
 		</button>
 	)

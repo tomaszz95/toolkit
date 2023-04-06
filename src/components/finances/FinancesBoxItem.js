@@ -38,6 +38,7 @@ const FinancesBoxItem = ({ listType, value, name, id, type }) => {
 			icon = 'fa-question'
 			break
 	}
+	
 	const deleteItem = e => {
 		const itemId = e.target.closest('li').id
 		const itemValue = e.target.closest('div').firstChild.textContent.slice(0, -1)
