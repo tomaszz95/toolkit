@@ -29,4 +29,4 @@ This is my first bigger React project, so
 - **Calculator** - the ability to perform basic mathematical calculations, protected from the most common mathematical issues, e.g. dividing by 0.
 - **Weather App** - allows to search weather for cities all around the world - shows basic information about weather situation. It also has a clock with the time zone of the selected city. Using Local Storage and based on [Weather API](https://openweathermap.org//).
 
-#### I encourage you to check the website - uploaded to netlifly [ToolsKit](https://toolskit.netlify.app/).
+#### I encourage you to check the website - uploaded to netlifly [ToolsKit](https://toolkiit.netlify.app/).
