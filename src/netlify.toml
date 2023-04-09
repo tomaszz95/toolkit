@@ -1,0 +1,4 @@
+ [[redirects]]
+    from = "/*"
+    to = "/errorpage.html"
+    status = 200

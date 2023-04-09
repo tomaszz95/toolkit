@@ -11,6 +11,7 @@ const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <RootLayout />,
+		errorElement: <ErrorPage />,
 		children: [
 			{ index: true, element: <TodoApp /> },
 			{
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
 				element: <WeatherApp />,
 			},
 			{
-				path: '*',
+				path: 'errorpage',
 				element: <ErrorPage />,
 			},
 		],
