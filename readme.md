@@ -8,7 +8,7 @@ The sites are responsive, using Local Storage to contain informations (like task
 <h2>📫 Page contains</h2>
 
 - five different sites with 5 different tools,
-- responsible design,
+- responsive design,
 - accessibility practices,
 - light / dark themes,
 
